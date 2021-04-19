@@ -1,0 +1,32 @@
+#Öncelikle değişen varyans için belirli testleri R programlamada kütüphanelerden göstereceğim.
+#H0:Sabit Varyans vardır.
+#H1:Değişen Varyans vardır.
+library(olsrr)
+library(lmtest)
+
+
+##Goldfiel-Quandt testi
+#gqtest(model)
+#Çıkan sonuçta p değerine baktığımızda p > 0.05 olduğuunda değişen varyans yoktur.
+
+##Breusch-Pagan-Godfrey Testi
+#bptest(model, data = ., studentize = F)
+#Çıkan sonuçta p değerine baktığımızda p > 0.05 olduğuunda değişen varyans yoktur.
+
+##White Testi
+#bptest(model, stundentize = T)
+#Çıkan sonuçta p değerine baktığımızda p > 0.05 olduğuunda değişen varyans yoktur.
+
+##Spearman Sıra Korelâsyon Testi
+#reg. modelinde x bağımsız, y bağımlı değişken olsun.
+#cor.test(x , y , formula = spearman)
+#reg. modeliniz çoklu ise her x için ayrı ayrı testin yapılması gerekir.
+
+##Park Testi
+#ress=ress^2
+#lnress <- log(ress)
+#yhat <- model$fitted.values
+#lnyhat <- log(yhat)
+#model2 <- lm(lnresi~lnyhat)
+#t veya F testi icin verilen p degerlerinden herhangi birisine bakilabilir.
+#p degeri > 0.05 olduğunda Değişen Varyans yoktur.
